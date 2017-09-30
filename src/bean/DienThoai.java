@@ -25,15 +25,17 @@ public class DienThoai {
 	private String camerasau;
 	private String quayphim;
 	private String danhgia;
-	
+
 	public DienThoai() {
 		super();
 	}
 
-	public DienThoai(int id, String ten, String hinhanh, int id_hangsanxuat, int luotxem, int banchay, int gia,
-			String kichco, String bangtan, String chip, String cpu, String memory, String ram, String cambien,
-			String bluetooth, String wlan, String gps, String pin, String manhinh, String sim, String cameratruoc,
-			String camerasau, String quayphim, String danhgia) {
+	public DienThoai(int id, String ten, String hinhanh, int id_hangsanxuat,
+			int luotxem, int banchay, int gia, String kichco, String bangtan,
+			String chip, String cpu, String memory, String ram, String cambien,
+			String bluetooth, String wlan, String gps, String pin,
+			String manhinh, String sim, String cameratruoc, String camerasau,
+			String quayphim, String danhgia) {
 		super();
 		this.id = id;
 		this.ten = ten;
@@ -252,5 +254,5 @@ public class DienThoai {
 	public void setDanhgia(String danhgia) {
 		this.danhgia = danhgia;
 	}
-	
+
 }

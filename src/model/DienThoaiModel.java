@@ -23,7 +23,7 @@ public class DienThoaiModel {
 
 	public ArrayList<DienThoai> getAll() {
 		conn = connectMySQDBLLibrary.getConnectMySQL();
-		ArrayList<DienThoai> listDT = new ArrayList<>();
+		ArrayList<DienThoai> listDT = new ArrayList<DienThoai>();
 		String sql = "SELECT * FROM dienthoai";
 		try {
 			st = conn.createStatement();
