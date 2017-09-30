@@ -29,16 +29,19 @@ public class DienThoaiModel {
 			st = conn.createStatement();
 			rs = st.executeQuery(sql);
 			while (rs.next()) {
-				DienThoai obj = new DienThoai(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
-						rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getString(10),
-						rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15),
-						rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),
-						rs.getString(21), rs.getString(22), rs.getString(23), rs.getString(24));
+				DienThoai obj = new DienThoai(rs.getInt(1), rs.getString(2),
+						rs.getString(3), rs.getInt(4), rs.getInt(5),
+						rs.getInt(6), rs.getInt(7), rs.getString(8),
+						rs.getString(9), rs.getString(10), rs.getString(11),
+						rs.getString(12), rs.getString(13), rs.getString(14),
+						rs.getString(15), rs.getString(16), rs.getString(17),
+						rs.getString(18), rs.getString(19), rs.getString(20),
+						rs.getString(21), rs.getString(22), rs.getString(23),
+						rs.getString(24));
 				System.out.println(obj.getTen());
 				listDT.add(obj);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return listDT;
@@ -52,25 +55,29 @@ public class DienThoaiModel {
 			st = conn.createStatement();
 			rs = st.executeQuery(sql);
 			while (rs.next()) {
-				dt = new DienThoai(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5),
-						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getString(10),
-						rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15),
-						rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),
-						rs.getString(21), rs.getString(22), rs.getString(23), rs.getString(24));
+				dt = new DienThoai(rs.getInt(1), rs.getString(2),
+						rs.getString(3), rs.getInt(4), rs.getInt(5),
+						rs.getInt(6), rs.getInt(7), rs.getString(8),
+						rs.getString(9), rs.getString(10), rs.getString(11),
+						rs.getString(12), rs.getString(13), rs.getString(14),
+						rs.getString(15), rs.getString(16), rs.getString(17),
+						rs.getString(18), rs.getString(19), rs.getString(20),
+						rs.getString(21), rs.getString(22), rs.getString(23),
+						rs.getString(24));
 				System.out.println(dt.getTen());
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return dt;
 	}
 
 	public int addItem(DienThoai obj) {
-		// TODO Auto-generated method stub
 		int result = 0;
 		conn = connectMySQDBLLibrary.getConnectMySQL();
-		String sql = "INSERT INTO " + "dienthoai" + " VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+		String sql = "INSERT INTO "
+				+ "dienthoai"
+				+ " VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, obj.getTen());
@@ -99,14 +106,12 @@ public class DienThoaiModel {
 			pst.executeUpdate();
 			result = 1;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				pst.close();
 				conn.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -114,7 +119,6 @@ public class DienThoaiModel {
 	}
 
 	public int delItem(int maTB) {
-		// TODO Auto-generated method stub
 		int result = 0;
 		conn = connectMySQDBLLibrary.getConnectMySQL();
 		String sql = "DELETE FROM " + "dienthoai" + " WHERE id =  ? ";
@@ -125,14 +129,12 @@ public class DienThoaiModel {
 			result = 1;
 			System.out.println(result);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				pst.close();
 				conn.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -172,17 +174,16 @@ public class DienThoaiModel {
 			pst.setString(21, obj.getCamerasau());
 			pst.setString(22, obj.getQuayphim());
 			pst.setString(23, obj.getDanhgia());
+			pst.setInt(24, obj.getId());
 			result = pst.executeUpdate();
 			System.out.println("da vao model" + result);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				pst.close();
 				conn.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -190,6 +191,6 @@ public class DienThoaiModel {
 	}
 
 	public static void main(String[] args) {
-		
+
 	}
 }
